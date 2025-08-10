@@ -1,0 +1,221 @@
+/* --- Google Fontsの読み込み --- */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&family=Cinzel:wght@400;700&display=swap');
+
+/* --- 色とフォントの基本設計（変数） --- */
+:root {
+    --background-color: #0a0a1a; /* 背景色：深紫紺 */
+    --text-color: #e0dacc;       /* 基本文字色：羊皮紙色 */
+    --primary-accent: #d4af37;   /* 主要アクセント（金） */
+    --secondary-accent: #d4af37aa; /* 補助アクセント（薄金） */
+    --border-color: #d4af3744;   /* 境界線（透けた金） */
+    --hover-bg: #d4af37;         /* ホバー時背景（金） */
+    --hover-text: #0a0a1a;       /* ホバー時文字（黒） */
+    --font-main: 'Shippori Mincho', serif; /* 日本語・本文用フォント */
+    --font-title: 'Cinzel', serif;          /* 英語・タイトル用フォント */
+}
+
+/* --- 基本設定 --- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    scroll-behavior: smooth;
+}
+
+/* --- 全ページ共通レイアウト --- */
+.world-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 120px 20px 60px 20px; /* 上下の余白を確保 */
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.content-box, .diagnosis-box, .result-box {
+    width: 100%;
+    max-width: 800px;
+    padding: 30px 40px;
+    border: 1px solid var(--border-color);
+    background: rgba(10, 10, 26, 0.75);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* --- タイポグラフィとボタン --- */
+h1 {
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 8vw, 3.5rem); /* 画面サイズに応じて調整 */
+    font-weight: 700;
+    color: var(--primary-accent);
+    margin: 0;
+    text-align: center;
+    text-shadow: 0 0 15px var(--secondary-accent);
+}
+
+h2 {
+    font-family: var(--font-title);
+    color: var(--secondary-accent);
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    text-align: left;
+    line-height: 1.9;
+    margin: 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--primary-accent);
+    border-radius: 50px;
+    color: var(--primary-accent);
+    background: transparent;
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background: var(--hover-bg);
+    color: var(--hover-text);
+    box-shadow: 0 0 20px var(--primary-accent);
+}
+
+/* --- トップページ専用 --- */
+.content-box {
+    text-align: center;
+}
+.content-box p {
+    text-align: center;
+    margin: 20px 0 30px 0;
+    font-size: 1.2rem;
+}
+
+/* --- 診断ページ専用 --- */
+.diagnosis-box {
+    text-align: left;
+}
+.question-block {
+    margin-bottom: 40px;
+    border-left: 3px solid var(--border-color);
+    padding-left: 20px;
+}
+.options label {
+    display: block;
+    margin: 15px 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.options label:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
+.options label input {
+    margin-right: 15px;
+    transform: scale(1.2);
+    accent-color: var(--primary-accent);
+}
+
+/* --- 結果ページ専用 --- */
+.result-box {
+    text-align: left;
+}
+#result-main {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+}
+#archetype {
+    margin-bottom: 10px;
+}
+#archetype-details {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--secondary-accent);
+    margin: 0;
+    font-family: var(--font-title);
+}
+#result-symbol {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+#symbol-image {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 15px var(--secondary-accent));
+}
+#symbol-name {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 0;
+    font-family: var(--font-title);
+}
+.result-chapter {
+    margin-bottom: 30px;
+}
+.result-chapter p {
+    text-align: justify;
+}
+
+/* --- 言語スイッチャー --- */
+.language-switcher {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 100;
+    background: rgba(10, 10, 26, 0.5);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.language-switcher button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    padding: 5px;
+}
+.language-switcher button:hover {
+    opacity: 1;
+}

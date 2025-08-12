@@ -62,20 +62,22 @@ function handleDiagnosisForm() {
  * 結果ページの表示を処理する関数
  */
 function displayResult() {
-    if (!currentLangData.results) return; // データがなければ何もしない
+    if (!currentLangData.results) return;
 
     const params = new URLSearchParams(window.location.search);
     const resultId = params.get('id');
 
+    const contentDiv = document.getElementById('result-content');
+    if (!contentDiv) return;
+
     if (!resultId) {
-        document.getElementById('result-content').innerHTML = `<h1>Error</h1><p>Result ID not found.</p>`;
+        contentDiv.innerHTML = `<h1>Error</h1><p>Result ID not found.</p>`;
         return;
     }
     
     const result = currentLangData.results[resultId];
 
     if (result) {
-        // ... (以前と同様の結果表示コード)
         document.getElementById('archetype').textContent = result.core_type;
         document.getElementById('archetype-details').textContent = `${result.element} : ${result.keyword}`;
         document.getElementById('symbol-image').src = `assets/images/placeholder.png`;
@@ -87,7 +89,7 @@ function displayResult() {
         document.getElementById('chapter3-text').textContent = result.chapter3;
         document.getElementById('chapter4-text').textContent = result.chapter4;
     } else {
-        document.getElementById('result-content').innerHTML = `<h1>Result Not Found</h1>`;
+        contentDiv.innerHTML = `<h1>Result Not Found</h1><p>The result for ID "${resultId}" could not be found in the language file.</p>`;
     }
 }
 
@@ -97,14 +99,10 @@ function displayResult() {
  */
 window.changeLanguage = async (lang) => {
     await loadAndApplyLanguage(lang);
-    // 結果ページの場合、言語変更後にテキストを再表示
     if (document.getElementById('result-content')) {
         displayResult();
     }
 };
-
-
-// --- 初期化処理 ---
 
 /**
  * ページが読み込まれたときに最初に実行されるメインの関数
@@ -122,8 +120,11 @@ async function initializePage() {
     if (document.getElementById('result-content')) { displayResult(); }
     
     if (document.getElementById('particles-js') && typeof particlesJS === 'function') {
-        particlesJS('particles-js', { /* ... パーティクルの設定 ... */ });
+        particlesJS('particles-js', {
+            "particles":{ "number":{ "value":60, "density":{ "enable":true, "value_area":800 } }, "color":{ "value":"#d4af37" }, "shape":{ "type":"circle" }, "opacity":{ "value":0.5, "random":true, "anim":{ "enable":true, "speed":1, "opacity_min":0.1, "sync":false } }, "size":{ "value":2, "random":true }, "line_linked":{ "enable":false }, "move":{ "enable":true, "speed":0.5, "direction":"none", "random":true, "out_mode":"out" } }, "interactivity":{ "detect_on":"canvas", "events":{ "onhover":{ "enable":false }, "onclick":{ "enable":false } } }, "retina_detect":true
+        });
     }
 }
 
+// ページの読み込み完了時に初期化処理を実行
 document.addEventListener('DOMContentLoaded', initializePage);

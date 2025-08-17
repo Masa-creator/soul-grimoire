@@ -1,0 +1,319 @@
+/* --- Google Fontsの読み込み（古風なセリフ体） --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap');
+
+/* --- 色とフォントの基本設計（魔導書テーマ） --- */
+:root {
+    --parchment-bg: #f5eeda; /* 羊皮紙の背景色 */
+    --ink-text-color: #4a3f35; /* インクの文字色（濃い茶色） */
+    --title-gold-color: #8c7851; /* タイトル用のくすんだ金色 */
+    --border-color: rgba(74, 63, 53, 0.2); /* 境界線（薄いインク色） */
+    --highlight-bg: rgba(74, 63, 53, 0.05); /* ホバー時の背景 */
+
+    --font-main: 'Noto Serif JP', serif; /* 日本語・本文用フォント */
+    --font-title: 'Cormorant Garamond', serif; /* 英語・タイトル用フォント */
+}
+
+/* --- 基本設定 --- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #312a24; /* サイト外側の背景色（古い木の机のような色） */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    color: var(--ink-text-color);
+    font-family: var(--font-main);
+    /* 羊皮紙のテクスチャをCSSで表現 */
+    background-image:
+        linear-gradient(rgba(245, 238, 218, 0.85), rgba(245, 238, 218, 0.85)),
+        url('https://www.transparenttextures.com/patterns/old-wall.png');
+    background-color: var(--parchment-bg);
+}
+
+/* --- 全ページ共通レイアウト --- */
+.world-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 120px 20px 60px 20px;
+}
+
+/* --- コンテンツボックス（羊皮紙の紙片のようなデザイン） --- */
+.content-box, .diagnosis-box, .result-box {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 50px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.2); /* 半透明の白で質感を出す */
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* 紙が浮いているような影 */
+}
+
+/* --- タイポグラフィとボタン（インクと箔押し） --- */
+h1 {
+    font-family: var(--font-title);
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    font-weight: 700;
+    color: var(--title-gold-color);
+    margin: 0;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h2 {
+    font-family: var(--font-title);
+    color: var(--ink-text-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: left;
+    border-bottom: 2px double var(--border-color); /* 二重線 */
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    text-align: justify; /* 両端揃えで文章を美しく見せる */
+    line-height: 2;
+    margin: 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid var(--ink-text-color);
+    border-radius: 2px;
+    color: var(--ink-text-color);
+    background: transparent;
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background: var(--ink-text-color);
+    color: var(--parchment-bg);
+}
+
+/* --- 診断ページ専用 --- */
+.options label {
+    display: block;
+    margin: 15px 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+}
+.options label:hover {
+    background-color: var(--highlight-bg);
+    border-color: var(--border-color);
+}
+.options label input {
+    margin-right: 15px;
+    transform: scale(1.2);
+    accent-color: var(--ink-text-color);
+}
+
+/* --- Google Fontsの読み込み（古風なセリフ体） --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap');
+
+/* --- 色とフォントの基本設計（魔導書テーマ） --- */
+:root {
+    --parchment-bg: #f5eeda;        /* 羊皮紙の背景色 */
+    --ink-text-color: #3D2B1F;      /* インクの文字色（濃い茶色） */
+    --title-gold-color: #B8860B;    /* タイトル用のくすんだ金色 */
+    --border-color: rgba(61, 43, 31, 0.2); /* 境界線（薄いインク色） */
+    --highlight-bg: rgba(61, 43, 31, 0.05); /* ホバー時の背景 */
+    --wood-bg: #312a24;             /* サイト外側の背景色（古い木の机） */
+
+    --font-main: 'Noto Serif JP', serif;          /* 日本語・本文用フォント */
+    --font-title: 'Cormorant Garamond', serif;    /* 英語・タイトル用フォント */
+}
+
+/* --- 基本設定 --- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--wood-bg); 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    color: var(--ink-text-color);
+    font-family: var(--font-main);
+    /* 羊皮紙のテクスチャをCSSで表現 */
+    background-image:
+        linear-gradient(rgba(245, 238, 218, 0.9), rgba(245, 238, 218, 0.9)),
+        url('https://www.transparenttextures.com/patterns/old-wall.png');
+    background-color: var(--parchment-bg);
+}
+
+/* --- 全ページ共通レイアウト --- */
+.world-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 120px 20px 60px 20px;
+}
+
+/* --- コンテンツボックス（羊皮紙の紙片のようなデザイン） --- */
+.content-box, .diagnosis-box, .result-box {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 50px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* --- タイポグラフィとボタン（インクと箔押し） --- */
+h1 {
+    font-family: var(--font-title);
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    font-weight: 700;
+    color: var(--title-gold-color);
+    margin: 0;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h2 {
+    font-family: var(--font-title);
+    color: var(--ink-text-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: left;
+    border-bottom: 2px double var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 2;
+    margin: 20px 0;
+    color: var(--ink-text-color); /* pタグの文字色を明確に指定 */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid var(--ink-text-color);
+    border-radius: 2px;
+    color: var(--ink-text-color);
+    background: transparent;
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background: var(--ink-text-color);
+    color: var(--parchment-bg);
+}
+
+/* --- トップページ専用 --- */
+.content-box p {
+    text-align: center;
+}
+
+/* --- 診断ページ専用 --- */
+.options label {
+    display: block;
+    margin: 15px 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    color: var(--ink-text-color); /* ラジオボタンの文字色を明確に指定 */
+}
+.options label:hover {
+    background-color: var(--highlight-bg);
+    border-color: var(--border-color);
+}
+.options label input {
+    margin-right: 15px;
+    transform: scale(1.2);
+    accent-color: var(--ink-text-color);
+}
+
+/* --- 結果ページ専用 --- */
+#result-main {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+}
+#archetype-details {
+    font-family: var(--font-title);
+    color: var(--title-gold-color);
+    font-size: 1.4rem;
+}
+#symbol-name, #archetype {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--ink-text-color); /* 結果のシンボル名などの文字色を明確に指定 */
+}
+#archetype {
+    font-size: 3rem; /* 結果のコアタイプは大きく */
+    color: var(--title-gold-color);
+}
+
+
+/* --- 言語スイッチャー --- */
+.language-switcher {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 100;
+}
+.language-switcher button {
+    background: none;
+    border: none;
+    color: #FFFFFF; /* 背景が濃い茶色なので白に固定 */
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    padding: 5px;
+    text-shadow: 1px 1px 2px #000; /* 読みやすくするために影を追加 */
+}
+.language-switcher button:hover {
+    opacity: 1;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="diagnosis_title"></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="language-switcher">
+        <button onclick="changeLanguage('ja')">日本語</button> |
+        <button onclick="changeLanguage('en')">English</button>
+    </div>
+    <div class="world-container">
+        <form class="diagnosis-box" id="diagnosis-form">
+            <div class="question-block">
+                <h2 data-key="q1_title"></h2>
+                <p data-key="q1_text"></p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A" required><span data-key="q1_optionA"></span></label>
+                    <label><input type="radio" name="q1" value="B"><span data-key="q1_optionB"></span></label>
+                </div>
+            </div>
+            <div class="question-block">
+                <h2 data-key="q2_title"></h2>
+                <p data-key="q2_text"></p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A" required><span data-key="q2_optionA"></span></label>
+                    <label><input type="radio" name="q2" value="B"><span data-key="q2_optionB"></span></label>
+                </div>
+            </div>
+            <div class="question-block">
+                <h2 data-key="q3_title"></h2>
+                <p data-key="q3_text"></p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A" required><span data-key="q3_optionA"></span></label>
+                    <label><input type="radio" name="q3" value="B"><span data-key="q3_optionB"></span></label>
+                    <label><input type="radio" name="q3" value="C"><span data-key="q3_optionC"></span></label>
+                    <label><input type="radio" name="q3" value="D"><span data-key="q3_optionD"></span></label>
+                </div>
+            </div>
+            <div class="question-block">
+                <h2 data-key="q4_title"></h2>
+                <p data-key="q4_text"></p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="A" required><span data-key="q4_optionA"></span></label>
+                    <label><input type="radio" name="q4" value="B"><span data-key="q4_optionB"></span></label>
+                    <label><input type="radio" name="q4" value="C"><span data-key="q4_optionC"></span></label>
+                    <label><input type="radio" name="q4" value="D"><span data-key="q4_optionD"></span></label>
+                    <label><input type="radio" name="q4" value="E"><span data-key="q4_optionE"></span></label>
+                </div>
+            </div>
+            <button type="submit" class="cta-button" data-key="diagnosis_submit"></button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
